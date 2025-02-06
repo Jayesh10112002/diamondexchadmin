@@ -1,34 +1,50 @@
 .DateFilter-parent{
-    border: 2px solid red;
-}
-.datefilter-child{
-    padding: 20px;
+    padding: 10px;
     display: flex;
     align-items: center;
-    gap: 5px;
-    border: 2px solid red;
+    justify-content: center;
+    box-shadow: 1px 1px 5px black;
+}
+
+.datefilter-child{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;   
+    padding: 8px;
+}
+.range-picker-parent{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
 }
 .rangePicker{
-    width: 25%;
+    width: 100%;
     border: 1px solid rgb(116, 113, 113);
 }
+.select-part-parent-filter{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
 .select-part-report{
-    width:20%;
+    width:100%;
     color: black;
+   
 }
 .search-input-field{
     margin-inline-start: 5px;
-    border: 1px solid rgb(134, 129, 129);
-    width: 15%;
-    border-radius: 5px;
-    overflow: hidden;
-
-    
+    width: 25%;
 }
 .search-input-tag{
+    border: 1px solid rgb(134, 129, 129);
     padding: 6px 10px;
     width: 100%;
-    border: none;
+    border-radius: 5px;
+}
+.label-part-date-filter{
+    padding-inline-start: 5px;
+    padding-bottom: 5px;
 }
 
 .button-submit-date-filter{
@@ -39,10 +55,14 @@
 .submit-btn-filter{
     padding: 8px 15px;
     margin: 5px;
-    background-color: blue;
+    background-color: var(--primary-bg-color);
     outline: none;
     border: none;
     color: white;
     font-size: 16px;
     cursor: pointer;
+}
+.submit-btn-filter:hover{
+    background-color:  #0a71a5;
+   
 }
