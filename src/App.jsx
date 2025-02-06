@@ -1,14 +1,16 @@
 import './App.css'
-import DashboardCard from './Components/DashbordCard/DashbordCard'
+import DateFilter from './Components/DateFilter/DateFilter'
 import Header from './Components/Header/Header'
-import Sidebar from './Components/Sidebar/Sidebar'
+import TopDashboard from './Components/Topdashboard/TopDashboard'
+import Dashboard from './Pages/Dashboard'
 
 function App() {
 
   return (
     <>
-     <Header/>
-     <DashboardCard/>
+    <Header/>
+    <TopDashboard/>
+    <Dashboard/>
     </>
   )
 }

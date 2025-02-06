@@ -1,11 +1,11 @@
 import React from 'react';
 import './DashbordCard.css';
 
-const DashboardCard = () => {
+const DashboardCard = ({heading, value}) => {
   return (
     <div className="card">
-      <div className="card-header">Profit Loss</div>
-      <div className="card-body">0</div>
+      <div className="card-header">{heading}</div>
+      <div className="card-body">{value}</div>
     </div>
   );
 };
