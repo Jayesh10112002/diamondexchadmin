@@ -1,0 +1,28 @@
+.card {
+    width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid #ddd;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .card-header {
+    background-color: var(--primary-bg-color);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .card-body {
+    background-color: white;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+  }
+  
