@@ -75,13 +75,14 @@ const Header = () => {
       <div className="header-menu">
         <nav className="navbar navbar-expand-lg navbar-light">
           <div id="navbarSupportedContent" className="navbar-collapse menu-list">
-            <a className="navbar-brand">
-              <img alt="logo" src="assets/logo/admindiamond.png" />
-            </a>
+
+            <div className="header-top-menu navbar-nav navbar">
             <button type="button" className="mobile-nav-toggle">
               <i className="fa fa-bars" />
             </button>
-            <div className="header-top-menu navbar-nav navbar">
+            <a className="navbar-brand">
+             Logo
+            </a>
               <ul className="menu-row">
                 {menuData.map((item, index) => (
                   <li key={index} className={`dropdown ${item.subMenu ? "dropdown-toggle" : ""}`}>
@@ -107,6 +108,7 @@ const Header = () => {
                 ))}
               </ul>
             </div>
+
             <div className="rightmenu">
               <ul className="d-flex mobile-hide-list">
                 <li className="dropdown">
@@ -142,7 +144,7 @@ const Header = () => {
                   </div>
                 </li>
               </ul>
-              <form noValidate className="navbar-nav me-auto mb-2 mb-lg-0">
+              <form noValidate className="navbar-nav ">
                 <input
                   name="searchSport"
                   id="dropdownMenuLink"
