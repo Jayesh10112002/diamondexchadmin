@@ -1,5 +1,7 @@
 import React from "react";
 import "./Header.css";
+import { FaCircleUser } from "react-icons/fa6";
+import { IoMenu } from "react-icons/io5";
 
 // Example menu data (can be expanded or modified as needed)
 const menuData = [
@@ -74,18 +76,28 @@ const Header = () => {
     <header className="header">
       <div className="header-menu">
         <nav className="navbar navbar-expand-lg navbar-light">
-          <div id="navbarSupportedContent" className="navbar-collapse menu-list">
-
+          <div
+            id="navbarSupportedContent"
+            className="navbar-collapse menu-list"
+          >
             <div className="header-top-menu navbar-nav navbar">
-            <button type="button" className="mobile-nav-toggle">
-              <i className="fa fa-bars" />
-            </button>
-            <a className="navbar-brand">
-             Logo
-            </a>
+           
+                <div className="mobile-nav-toggle">
+                  <IoMenu />
+                </div>
+
+                <a className="navbar-brand"><img src="https://sitethemedata.com/sitethemes/d247.com/front/logo.png" alt="" /></a>
+
+             
+
               <ul className="menu-row">
                 {menuData.map((item, index) => (
-                  <li key={index} className={`dropdown ${item.subMenu ? "dropdown-toggle" : ""}`}>
+                  <li
+                    key={index}
+                    className={`dropdown ${
+                      item.subMenu ? "dropdown-toggle" : ""
+                    }`}
+                  >
                     <a
                       className="navbar-link"
                       href={item.link || "#"}
@@ -97,7 +109,10 @@ const Header = () => {
                       <ul className="dropdown-menu">
                         {item.subMenu.map((subItem, subIndex) => (
                           <li key={subIndex}>
-                            <a className="dropdown-item" href={subItem.link || "#"}>
+                            <a
+                              className="dropdown-item"
+                              href={subItem.link || "#"}
+                            >
                               {subItem.name || subItem}
                             </a>
                           </li>
@@ -118,12 +133,21 @@ const Header = () => {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <img src="assets/images/icon/user.svg" alt="user-icon" /> TECHADMIN
+                    <span className="userIcon">
+                      <FaCircleUser />
+                    </span>{" "}
+                    TECHADMIN
                   </a>
-                  <div aria-labelledby="dropdownMenuButton1" className="dropdown-menu">
+                  <div
+                    aria-labelledby="dropdownMenuButton1"
+                    className="dropdown-menu"
+                  >
                     <ul className="menu-list">
                       <li>
-                        <a className="dropdown-item" style={{ textDecoration: "none" }}>
+                        <a
+                          className="dropdown-item"
+                          style={{ textDecoration: "none" }}
+                        >
                           Bal. : <span>100,000,000</span>
                         </a>
                       </li>
