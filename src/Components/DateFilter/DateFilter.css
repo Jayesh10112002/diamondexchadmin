@@ -1,0 +1,48 @@
+.DateFilter-parent{
+    border: 2px solid red;
+}
+.datefilter-child{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 2px solid red;
+}
+.rangePicker{
+    width: 25%;
+    border: 1px solid rgb(116, 113, 113);
+}
+.select-part-report{
+    width:20%;
+    color: black;
+}
+.search-input-field{
+    margin-inline-start: 5px;
+    border: 1px solid rgb(134, 129, 129);
+    width: 15%;
+    border-radius: 5px;
+    overflow: hidden;
+
+    
+}
+.search-input-tag{
+    padding: 6px 10px;
+    width: 100%;
+    border: none;
+}
+
+.button-submit-date-filter{
+    display: flex;
+    align-items: center;
+    margin-inline-start: 20px;
+}
+.submit-btn-filter{
+    padding: 8px 15px;
+    margin: 5px;
+    background-color: blue;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
