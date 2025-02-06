@@ -1,70 +1,72 @@
 import React, { useState } from "react";
-import "./TopDashboard.css";
+import { Tooltip } from "antd";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
-
+import "./TopDashboard.css";
 
 const TopDashboard = () => {
-    const [isOpenTop, setisOpenTop] = useState(false)
-    const TopHandler= () =>{
+  const [isOpenTop, setisOpenTop] = useState(false);
 
-    }
+  const TopHandler = () => {
+    setisOpenTop(!isOpenTop);
+  };
+
+  const adminDetails = [
+    { name: "User ID", value: "rr10", NameMessage: "Your username" },
+    { name: "User Type", value: "Admin", NameMessage: "Your user role" },
+    { name: "Given Bal", value: "10000.99", NameMessage: "Your username" },
+    {
+      name: "Available",
+      value: "99800.00",
+      NameMessage: "Aapke Client Ko Dene Ke Baad Bacha Hua Balance",
+    },
+    {
+      name: "Up Line",
+      value: "0",
+      NameMessage: "Upper level ka hisab ka Len-den",
+    },
+    {
+      name: "Down line",
+      value: "0",
+      NameMessage: "Upper Level Ke Saath Hisab Ka Len-Den",
+    },
+    {
+      name: "Current P&L",
+      value: "0",
+      NameMessage:
+        "Upline + Downline Ka Bina Settle Kiya Hua Profit & Loss Account.",
+    },
+    {
+      name: "Exposure",
+      value: "0",
+      NameMessage:
+        "Your current market exposure with all kind of games that your clients are playing currently.",
+    },
+    { name: "My P&L", value: "0", NameMessage: "Mera Profit & Loss Account." },
+  ];
+
   return (
     <div className="TopDashboard-parent">
       <div className="opening-icon-topdashboard">
         <h4>
           <IoIosArrowDropdownCircle
-            style={{
-              fontSize: "30px",
-            }}
-           />
+            style={{ fontSize: "25px", color: "white" }}
+            onClick={TopHandler}
+          />
         </h4>
       </div>
-      <div className="topdashboard-child">
+
+      <div
+        className={`topdashboard-child ${isOpenTop === false ? "OpenTop" : ""}`}
+      >
         <div className="admin-details">
-          <div className="detail-type">
-            <span>User ID:</span>
-            <span className="value-span-topbar">rr10</span>
-          </div>
-          <div className="detail-type">
-            <span>User Type :</span>
-            <span className="value-span-topbar">Admin</span>
-          </div>
-        </div>
-        <div className="admin-details">
-          <div className="detail-type">
-            <span>Given Balance:</span>
-            <span className="value-span-topbar">10000</span>
-          </div>
-          <div className="detail-type">
-            <span>Available :</span>
-            <span className="value-span-topbar">99800.00</span>
-          </div>
-        </div>
-        <div className="admin-details">
-          <div className="detail-type">
-            <span>Up Line:</span>
-            <span className="value-span-topbar"> 0</span>
-          </div>
-          <div className="detail-type">
-            <span>Down Line :</span>
-            <span className="value-span-topbar">0</span>
-          </div>
-        </div>
-        <div className="admin-details">
-          <div className="detail-type">
-            <span>Current P&L:</span>
-            <span className="value-span-topbar">0</span>
-          </div>
-          <div className="detail-type">
-            <span>Exposure :</span>
-            <span className="value-span-topbar">0</span>
-          </div>
-        </div>
-        <div className="admin-details">
-          <div className="detail-type">
-            <span>My P&L:</span>
-            <span className="value-span-topbar">0</span>
-          </div>
+          {adminDetails.map((item, index) => (
+            <div className="detail-type" key={index}>
+              <span>{item.name}:</span>
+              <Tooltip title={item.NameMessage} placement="top">
+                <span className="value-span-topbar">{item.value}</span>
+              </Tooltip>
+            </div>
+          ))}
         </div>
       </div>
     </div>
