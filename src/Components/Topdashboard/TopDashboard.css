@@ -1,22 +1,57 @@
 .TopDashboard-parent{
-    padding:10px 30px;
-    background-color: #bbbb;
+    background-color: var(--secondary-bg-color);
+    user-select:none ;
 }
 .opening-icon-topdashboard{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2px;
+}
+.opening-icon-topdashboard h4{
+    cursor: pointer;
 }
 
-.topdashboard-child{
+
+.topdashboard-child {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+  padding: 0px 30px;
+  display: flex;
+}
+
+.OpenTop {
     display: flex;
+  max-height: 300px; /* Adjust based on content height */
+  padding: 0px 30px;
 }
 .admin-details{
-    width: 25%;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 .detail-type{
+    width: 20%;
     padding: 5px;
+    display: flex;
+}
+.detail-type span{
+    font-size: 14px;
+    cursor: pointer;
+    color: white;
 }
 .value-span-topbar{
     margin-inline-start: 10px;
+}
+
+.ant-tooltip {
+  color: white !important;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+
 }
