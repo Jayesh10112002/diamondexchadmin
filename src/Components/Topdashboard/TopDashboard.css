@@ -1,0 +1,22 @@
+.TopDashboard-parent{
+    padding:10px 30px;
+    background-color: #bbbb;
+}
+.opening-icon-topdashboard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.topdashboard-child{
+    display: flex;
+}
+.admin-details{
+    width: 25%;
+}
+.detail-type{
+    padding: 5px;
+}
+.value-span-topbar{
+    margin-inline-start: 10px;
+}

@@ -72,7 +72,7 @@ const DateFilter = () => {
         </div>
         <div className="select-part-parent-filter">
           <label className="label-part-date-filter">
-            Start Date To End Date
+            Account Statement
           </label>
 
           <Select
@@ -90,7 +90,7 @@ const DateFilter = () => {
         </div>
         <div className="select-part-parent-filter">
           <label className="label-part-date-filter">
-            Start Date To End Date
+            Select Report
           </label>
 
           <Select
