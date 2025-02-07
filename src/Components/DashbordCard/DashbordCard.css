@@ -1,79 +1,78 @@
 .card {
-    width: 15%;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    border: 1px solid #ddd;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .card-header {
-    background-color: var(--primary-bg-color);
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 7px;
-    text-align: left;
-  }
-  
-  .card-body {
-    background-color: white;
-    color: #333;
-    font-size: 17px;
-    font-weight: bold;
-    padding: 8px;
-    text-align: center;
-  }
-  
-  .table-card {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ddd;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-  }
-  
-  .table-header {
-    background-color: var(--primary-bg-color);
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 7px;
-    text-align: left;
-  }
-  
- /* Default Table Styles */
+  width: 15%;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid #ddd;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  font-family: Arial, sans-serif;
+}
+
+.card-header {
+  background-color: var(--primary-bg-color);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 7px;
+  text-align: left;
+}
+
+.card-body {
+  background-color: white;
+  color: #333;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.table-card {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.table-header {
+  background-color: var(--primary-bg-color);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 7px;
+  text-align: left;
+}
+
+/* Default Table Styles */
 .table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-  }
-  
-  .table th,
-  .table td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  
-  /* Case: 2 Columns */
-  .table.column-count-2 th:first-child,
-  .table.column-count-2 td:first-child {
-    width: 85%;
-  }
-  
-  .table.column-count-2 th:last-child,
-  .table.column-count-2 td:last-child {
-    width: 15%;
-  }
-  
-  /* Case: 3 Columns - Equal Width */
-  .table.column-count-3 th,
-  .table.column-count-3 td {
-    width: 33.33%;
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.table th,
+.table td {
+  padding: 5px;
+  font-weight: 400;
+  border: 1px solid #ddd;
+}
+
+/* Case: 2 Columns */
+.table.column-count-2 th:first-child,
+.table.column-count-2 td:first-child {
+  width: 85%;
+}
+
+.table.column-count-2 th:last-child,
+.table.column-count-2 td:last-child {
+  width: 15%;
+}
+
+/* Case: 3 Columns - Equal Width */
+.table.column-count-3 th,
+.table.column-count-3 td {
+  width: 33.33%;
+}
