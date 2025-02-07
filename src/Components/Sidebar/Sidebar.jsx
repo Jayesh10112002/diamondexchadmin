@@ -1,94 +1,94 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
+import {data} from "../../Utils/code"
+import { LiaPlusSquare } from "react-icons/lia";
+import { PiMinusSquareLight } from "react-icons/pi";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { MdOutlineKeyboardArrowUp } from "react-icons/md";
+
 
 const Sidebar = () => {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [expandedNode, setExpandedNode] = useState(null);
+  const [nestedExpand, setNestedExpand] = useState({});
+  const menus = data.data;
 
-  const sports = [
-    {
-      name: "Cricket",
-      matches: [
-        "India vs England",
-        "England vs South Africa",
-        "Sydney Sixers vs Perth Scorchers",
-        "Surrey vs Lancashire",
-        "Royal Challengers Bangalore vs Kolkata Knight Riders",
-        "Bangladesh vs Afghanistan",
-        "New Zealand vs West Indies",
-        "Pakistan vs Sri Lanka",
-        "India vs Australia",
-        "India vs Pakistan",
-      ],
-    },
-    {
-      name: "Soccer",
-      matches: [
-        "Manchester United vs Chelsea",
-        "Manchester United vs Chelsea",
-        "Petra Kvitova vs Coco Gauff",
-        "Ashleigh Barty vs Simona Halep",
-        "Venus Williams vs Maria Sharapova",
-        "Serena Williams vs Naomi Osaka",
-        "Roger Federer vs Andy Murray",
-        "Novak Djokovic vs Rafael Nadal",
-        "Los Angeles Galaxy vs Seattle Sounders",
-        "Paris Saint-Germain vs Marseille",
-        "Bayern Munich vs Borussia Dortmund",
-        "Juventus vs AC Milan",
-        "Real Madrid vs Barcelona",
-        "Manchester United vs Liverpool",
-      ],
-    },
-    {
-      name: "Tennis",
-      matches: ["Federer vs Nadal"],
-    },
-  ];
 
-  const toggleSubMenu = (index) => {
-    if (openIndex === index) {
-      setOpenIndex(null); // Close if already open
-    } else {
-      setOpenIndex(index); // Open the clicked menu
-    }
-  };
+    const toggleExpandedNode = (etid) => {
+      setExpandedNode((prev) => (prev === etid ? null : etid));
+    };
+
+    const toggleNestedExpand = (cid) => {
+      setNestedExpand((prev) => ({ ...prev, [cid]: !prev[cid] }));
+    };
 
   return (
-    <div className="mobile-nav navbar mobile-nav-active">
-      <div className="sidebar scroller collapse navbar-collapse">
-        <div className="scroll-sidebar scroller">
-          <div className="menu-section">
-            <h2>Sports</h2>
-            {sports.map((sport, index) => (
-              <div key={index} className="mat-expansion-panel">
-                <div
-                  className="mat-expansion-panel-header"
-                  onClick={() => toggleSubMenu(index)}
-                >
-                  <span className="mat-content">
-                    <a>{sport.name}</a>
-                  </span>
-         
-                </div>
-                <div
-                  className={`mat-expansion-panel-content ${
-                    openIndex === index ? "open" : ""
-                  }`}
-                >
-                  <div className="mat-expansion-panel-body">
-                    {sport.matches.map((match, matchIndex) => (
-                      <ul key={matchIndex} className="submenu-list">
-                        <li>
-                          <a>{match}</a>
-                        </li>
-                      </ul>
-                    ))}
-                  </div>
-                </div>
+    <div className="sidebar">
+      <div className="menu">
+        {/* <div className="menu-title">
+          All Sports
+          <span className="toggle-icon">
+            {sportsMenu ? <FaAngleUp /> : <FaAngleDown />}
+          </span>
+        </div> */}
+        <ul
+          // className={`menu-items ${
+          //   sportsMenu ? "menu-items-open" : "menu-items-closed"
+          // }`}
+          className="menu-items"
+        >
+          {menus.t1.map((item) => (
+            <li key={item.etid} className="menu-item">
+              <div
+                className="nested-title"
+                onClick={() => toggleExpandedNode(item.etid)}
+              >
+                <span style={{ fontSize: "14px" }}>{item.name}</span>
+                <span className="nested-icon">
+                  {expandedNode === item.etid ? (
+                    <MdOutlineKeyboardArrowUp size={18} />
+                  ) : (
+                    <MdOutlineKeyboardArrowDown size={18} />
+                  )}
+                </span>
               </div>
-            ))}
-          </div>
-        </div>
+              {expandedNode === item.etid && (
+                <ul className="nested-items nested-open">
+                  {item.children?.map((subItem) => (
+                    <li key={subItem.cid} className="nested-item">
+                      <div
+                        className="deep-nested-title"
+                        onClick={() => toggleNestedExpand(subItem.cid)}
+                      >
+                        <span className="deep-nested-icon">
+                          {nestedExpand[subItem.cid] ? (
+                            <PiMinusSquareLight size={18} />
+                          ) : (
+                            <LiaPlusSquare size={18} />
+                          )}
+                        </span>
+                        <span className="subitem-name-span-sports">
+                          {subItem.name}
+                        </span>
+                      </div>
+                      {nestedExpand[subItem.cid] && (
+                        <ul className="deep-nested-items">
+                          {subItem.children?.map((nestedItem) => (
+                            <li
+                              key={nestedItem.cid}
+                              className="deep-nested-item"
+                            >
+                              {nestedItem.name}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

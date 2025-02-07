@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Tooltip } from "antd";
-import { IoIosArrowDropdownCircle } from "react-icons/io";
+import { FaCircleArrowDown } from "react-icons/fa6";
+import { FaCircleArrowUp } from "react-icons/fa6";
 import "./TopDashboard.css";
 
 const TopDashboard = () => {
@@ -48,21 +49,26 @@ const TopDashboard = () => {
     <div className="TopDashboard-parent">
       <div className="opening-icon-topdashboard">
         <h4>
-          <IoIosArrowDropdownCircle
-            style={{ fontSize: "25px", color: "white" }}
-            onClick={TopHandler}
-          />
+          {isOpenTop ? (
+            <FaCircleArrowUp
+              style={{ fontSize: "20px", color: "white" }}
+              onClick={TopHandler}
+            />
+          ) : (
+            <FaCircleArrowDown
+              style={{ fontSize: "20px", color: "white" }}
+              onClick={TopHandler}
+            />
+          )}
         </h4>
       </div>
 
-      <div
-        className={`topdashboard-child ${isOpenTop === false ? "OpenTop" : ""}`}
-      >
+      <div className={`topdashboard-child ${isOpenTop ? "OpenTop" : ""}`}>
         <div className="admin-details">
           {adminDetails.map((item, index) => (
             <div className="detail-type" key={index}>
               <span>{item.name}:</span>
-              <Tooltip title={item.NameMessage} placement="top">
+              <Tooltip title={item.NameMessage} placement="bottom">
                 <span className="value-span-topbar">{item.value}</span>
               </Tooltip>
             </div>

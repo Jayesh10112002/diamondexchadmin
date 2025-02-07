@@ -1,0 +1,9 @@
+.Layout-container{
+    position:relative ;
+}
+.sidebar-component{
+    position: absolute;
+    top: 50px;
+    z-index: 999;
+    width: 14%;
+}
