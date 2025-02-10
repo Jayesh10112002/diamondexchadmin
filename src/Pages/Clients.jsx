@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DynamicTable from "../Components/Table/DynamicTable";
 import DateFilter from "../Components/DateFilter/DateFilter";
 import TableTop from "../Components/TableTop/TableTop";
 import "../Style/Client.css";
 import { useNavigate } from "react-router-dom";
-import { Button, Input, Modal } from "antd";
-import { RxCross2 } from "react-icons/rx";
+import { Button, Input, message, Modal } from "antd";
+import MasterPassword from "../Components/PasswordMaster/MasterPassword";
 
 const Clients = () => {
   const [isDcModalVisible, setDcModalVisible] = useState(false);
@@ -13,6 +13,7 @@ const Clients = () => {
   const [isPasswordModalVisible, setPasswordModalVisible] = useState(false);
   const [isAuthModalVisible, setAuthModalVisible] = useState(false);
   const [password, setPassword] = useState("");
+  const [Record, setRecord] = useState("");
   const navigate = useNavigate();
   const [pagination, setPagination] = useState({
     current: 1,
@@ -40,11 +41,11 @@ const Clients = () => {
     setAuthModalVisible(true);
   };
 
-  const handleAuthSubmit = () => {
-    if (password === "correctPassword") {
+  const handleAuthSubmit = (name) => {
+    if (password === "aman") {
       message.success("Authenticated successfully!");
       setAuthModalVisible(false);
-      navigate(`/game-page`);
+      navigate(`/game-page/${name}`);
     } else {
       message.error("Invalid password!");
     }
@@ -117,7 +118,7 @@ const Clients = () => {
       title: "Actions",
       dataIndex: "actions",
       key: "actions",
-      render: (_, record) => (
+      render: (_, Record) => (
         <>
           <Button
             style={{
@@ -126,7 +127,7 @@ const Clients = () => {
               margin: 2,
               fontSize: "12px",
             }}
-            onClick={() => handleEditUser(record.name)}
+            onClick={() => handleEditUser(Record.userName)}
           >
             U
           </Button>
@@ -170,7 +171,7 @@ const Clients = () => {
               margin: 2,
               fontSize: "12px",
             }}
-            onClick={showAuthModal}
+            onClick={() => showAuthModal(Record.userName)}
           >
             GC
           </Button>
@@ -181,7 +182,7 @@ const Clients = () => {
               margin: 2,
               fontSize: "12px",
             }}
-            onClick={showAuthModal}
+            onClick={() => showAuthModal(Record.userName)}
           >
             CC
           </Button>
@@ -236,7 +237,11 @@ const Clients = () => {
       actions: "Delete",
     },
   ];
+  useEffect(() => {
+    setRecord(data);
+  }, []);
 
+  console.log("this is record", Record);
   return (
     <div className="client-page-parent">
       <div className="client-page-top">
@@ -313,14 +318,7 @@ const Clients = () => {
                 </div>
               </div>
             </div>
-            <div className="master-password-field">
-              <div className="master-password-heading">
-                <h4>Master Password:</h4>
-              </div>
-              <div className="input-field-master-password">
-                <input type="password" placeholder="Enter Password" />
-              </div>
-            </div>
+            <MasterPassword />
           </div>
         </Modal>
 
@@ -386,14 +384,15 @@ const Clients = () => {
               </div>
             </div>
           </div>
-          <div className="master-password-field">
+          {/* <div className="master-password-field">
             <div className="master-password-heading">
               <h4>Master Password:</h4>
             </div>
             <div className="input-field-master-password">
               <input type="password" placeholder="Enter Password" />
             </div>
-          </div>
+          </div> */}
+          <MasterPassword />
         </Modal>
         <Modal
           title="Change Password"
@@ -404,7 +403,7 @@ const Clients = () => {
           <div className="master-field-parent">
             <div className="change-password-field">
               <div className="master-password-heading">
-                <h4>New  Password:</h4>
+                <h4>New Password:</h4>
               </div>
               <div className="input-field-master-password">
                 <input type="password" placeholder="Enter Password" />

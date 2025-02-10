@@ -1,0 +1,47 @@
+
+
+.betting-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+
+.betting-table th,
+.betting-table td {
+  padding:3px;
+  width: 5%;
+}
+
+.betting-table thead th ,tr{
+  background-color: #f2f2f2;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px;
+  border: 1px solid rgb(223, 205, 205);
+}
+
+.row-label {
+  font-weight: 500;
+  font-size: 14px;
+  text-align: left;
+  background-color: #eee;
+}
+
+.betting-table input {
+  width: 100%;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border: none;
+  outline: none;
+
+}
+.cell-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.cell-content label{
+    font-size: 500;
+    font-size: 14px;
+}

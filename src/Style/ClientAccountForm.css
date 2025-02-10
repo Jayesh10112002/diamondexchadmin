@@ -1,44 +1,139 @@
 .account-form-container {
   padding: 20px;
-  max-width: 600px;
-  margin: 0 auto;
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 20px;
 }
-
-.client-account-form {
+.account-form-container h2{
+  font-size: 16px;
+  padding-inline-start: 10px;
+}
+.parent-container-details{
+  display: flex;
+  margin-top: 10px;
+}
+.account-details-parent{
+  width: 50%;
   display: flex;
   flex-direction: column;
+  padding: 10px;
   gap: 15px;
 }
-
-.form-section {
+.account-details-child{
+  padding: 15px;
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
-
-label {
-  font-weight: bold;
-  margin-bottom: 5px;
+.account-details-child h5{
+  background-color:white;
+  display: inline-block;
+  position: absolute;
+  top: -10px;
+  font-size: 16px;
 }
-
-input,
-select {
+.account-details-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+.input-account-type{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+.input-account-type label{
+  padding-bottom: 5px;
+  font-size: 14px;
+}
+.input-account-type input{
   padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid gray;
 }
+.sports-name{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
 
-.update-button {
-  background-color: orange;
-  color: white;
-  padding: 10px;
+}
+.commission-input-field{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  padding: 5px;
+  gap: 8px;
+}
+.commission-input-field  span {
+  font-size: 14px;
+  font-weight: 600;
+}
+.input-commission{
+  width: 8%; 
+  padding: 8px;
+  outline: none;
+  background-color: rgba(171, 171, 224, 0.473);
   border: none;
-  cursor: pointer;
-  border-radius: 4px;
+  border-radius: 5px;
+
+}
+.third-child-betlimit{
+display: flex;
+flex-direction: row;
+gap: 15px;
 }
 
-.update-button:hover {
-  background-color: darkorange;
+
+.personal-detail-parent{
+  width: 50%;
+  padding: 10px;
+}
+.personal-details-input{
+  margin-top: 15px;
+}
+.table-component-parent{
+  margin-top: 20px;
+}
+
+.radio-check-button{
+  display: flex;
+  align-items: center;
+  padding-inline-start: 10px;
+  margin-top: 10px;
+
+}
+.radio-check-button span{
+  font-weight: 500;
+  font-size: 16px;
+}
+.radio-check-button input{
+  margin-inline-start: 10px;
+}
+.master-field-add-client{
+  width: 25%;
+  
+}
+
+
+
+.update-btn{
+  width: 8%;
+  padding: 5px;
+  margin-top: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: var(--secondary-bg-color);
+  color: white;
+  cursor: pointer;
 }

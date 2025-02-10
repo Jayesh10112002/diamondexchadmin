@@ -1,9 +1,19 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import "../Style/ClientAccountForm.css";
+import { Select } from "antd";
+import TableComponent from "../Components/EditPage/TableComponent";
+import CasinoMaxbet from "../Components/EditPage/CasinoMaxbet";
+import MasterPassword from "../Components/PasswordMaster/MasterPassword";
 
 function ClientAccountForm() {
   const { user } = useParams();
+  const [showComponents, setShowComponents] = useState(false);
+
+  const handleCheckboxChange = (event) => {
+    setShowComponents(event.target.checked);
+  };
+  console.log("this is usee", user);
 
   // State for form fields
   const [accountData, setAccountData] = useState({
@@ -28,74 +38,122 @@ function ClientAccountForm() {
   return (
     <div className="account-form-container">
       <h2>Add/Edit Client Account</h2>
-      <form onSubmit={handleSubmit} className="client-account-form">
-        <div className="form-section">
-          <label>Account Type:</label>
-          <select
-            name="accountType"
-            value={accountData.accountType}
-            onChange={handleChange}
-          >
-            <option value="">Select Type</option>
-            <option value="User">User</option>
-            <option value="Admin">Admin</option>
-          </select>
+      <div className="parent-container-details">
+        <div className="account-details-parent">
+          <div className="account-details-child">
+            <h5>Account Details:</h5>
+            <div className="account-details-content">
+              <div className="input-account-type">
+                <label> Account Type:</label>
+                <Select
+                  className="select-part-input-"
+                  options={[
+                    { value: "user", label: "User" },
+                    { value: "lucy", label: "Lucy" },
+                    { value: "Yiminghe", label: "Yiminghe" },
+                  ]}
+                />
+              </div>
+              <div className="input-account-type">
+                <label>Client Name:</label>
+                <input
+                  type="text"
+                  value={user}
+                  onChange={handleChange}
+                  placeholder="Enter client name"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="account-details-child">
+            <h5>Commission:</h5>
+            <div className="sports-name">Cricket/Soccer/Tennis</div>
+            <div className="commission-input-field">
+              <span>Commission: M.O</span>
+              <input type="text" className="input-commission" value={1} />
+              <span>%(1%)</span>
+            </div>
+          </div>
+          <div className="account-details-child ">
+            <h5>User Setting:</h5>
+            <div className="third-child-betlimit">
+              <div className="input-account-type">
+                <label>Max Bet:</label>
+                <input
+                  type="number"
+                  value={0}
+                  placeholder="Enter client name"
+                />
+              </div>{" "}
+              <div className="input-account-type">
+                <label>Max Profit:</label>
+                <input
+                  type="number"
+                  value={0}
+                  placeholder="Enter client name"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div className="form-section">
-          <label>Client Name:</label>
+        <div className="personal-detail-parent">
+          <div className="account-details-child">
+            <h5>User Setting:</h5>
+            <div className="third-child-betlimit">
+              <div className="input-account-type">
+                <label>Username:</label>
+                <input
+                  type="text"
+                  value={user}
+                  placeholder="Enter client name"
+                />
+              </div>{" "}
+              <div className="input-account-type">
+                <label>Password:</label>
+                <input type="password" placeholder="Enter client name" />
+              </div>
+            </div>
+            <div className="third-child-betlimit personal-details-input">
+              <div className="input-account-type">
+                <label>Retype Password:</label>
+                <input type="password" />
+              </div>{" "}
+              <div className="input-account-type">
+                <label>Refrence Name:</label>
+                <input type="text" placeholder="Refrence Name" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="table-component">
+        <div className="radio-check-button">
+          <span>Check Limits </span>
           <input
-            type="text"
-            name="clientName"
-            value={accountData.clientName}
-            onChange={handleChange}
+            type="checkbox"
+            checked={showComponents}
+            onChange={handleCheckboxChange}
           />
         </div>
 
-        <div className="form-section">
-          <label>Commission:</label>
-          <input
-            type="number"
-            name="commission"
-            value={accountData.commission}
-            onChange={handleChange}
-          />
-        </div>
+        {showComponents && (
+          <>
+            <div className="account-details-child table-component-parent">
+              <h5>Min Max Bets</h5>
+              <TableComponent />
+            </div>
 
-        <div className="form-section">
-          <label>Max Bet:</label>
-          <input
-            type="number"
-            name="maxBet"
-            value={accountData.maxBet}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="form-section">
-          <label>Max Profit:</label>
-          <input
-            type="number"
-            name="maxProfit"
-            value={accountData.maxProfit}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="form-section">
-          <label>Master Password:</label>
-          <input
-            type="password"
-            name="masterPassword"
-            value={accountData.masterPassword}
-            onChange={handleChange}
-          />
-        </div>
-
-        <button type="submit" className="update-button">
-          Update Account
-        </button>
-      </form>
+            <div className="account-details-child table-component-parent">
+              <h5>Casino Max Bet</h5>
+              <CasinoMaxbet />
+            </div>
+          </>
+        )}
+      </div>
+      <div className="master-field-add-client">
+        <MasterPassword />
+      </div>
+        <button className="update-btn">Update</button>
     </div>
   );
 }

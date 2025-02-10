@@ -19,6 +19,10 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/clients" element={<Clients />} />
           <Route path="edit-user/:user" element={<ClientAccountForm />} />
+          <Route
+            path="gamebetlock/:user"
+            element={<ControlPage />}
+          />
         </Routes>
       </Router>
 
