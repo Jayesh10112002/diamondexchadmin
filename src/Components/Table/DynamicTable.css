@@ -1,0 +1,29 @@
+/* For WebKit browsers (Chrome, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+    height: 10px; /* Adjust the height of the horizontal scrollbar */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light background for scrollbar track */
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #888; /* Darker color for scrollbar handle */
+    border-radius: 10px;
+    border: 2px solid #f1f1f1; /* Padding inside the scrollbar handle */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Darker when hovered */
+  }
+  
+  /* Firefox support */
+  .custom-scrollbar {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #888 #f1f1f1; /* Scrollbar handle and track colors */
+  }
+  
+  .custom-table .ant-table-tbody>tr>td {
+padding: 8px;
+  }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import { FaCircleUser } from "react-icons/fa6";
 import { IoMenu } from "react-icons/io5";
@@ -71,7 +71,8 @@ const menuData = [
   },
 ];
 
-const Header = () => {
+const Header = ({SidebarHandler}) => {
+ 
   return (
     <header className="header">
       <div className="header-menu">
@@ -81,14 +82,16 @@ const Header = () => {
             className="navbar-collapse menu-list"
           >
             <div className="header-top-menu navbar-nav navbar">
-           
-                <div className="mobile-nav-toggle">
-                  <IoMenu />
-                </div>
+              <div className="mobile-nav-toggle">
+                <IoMenu onClick={SidebarHandler} />
+              </div>
 
-                <a className="navbar-brand"><img src="https://sitethemedata.com/sitethemes/d247.com/front/logo.png" alt="" /></a>
-
-             
+              <a className="navbar-brand">
+                <img
+                  src="https://sitethemedata.com/sitethemes/d247.com/front/logo.png"
+                  alt=""
+                />
+              </a>
 
               <ul className="menu-row">
                 {menuData.map((item, index) => (

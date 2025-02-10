@@ -6,4 +6,10 @@
     top: 50px;
     z-index: 999;
     width: 14%;
+    transform: translateX(-400px);
+    transition:transform 0.9s  ease-in-out;
+}
+
+.OpenSidebar{
+    transform: translateX(0px);
 }

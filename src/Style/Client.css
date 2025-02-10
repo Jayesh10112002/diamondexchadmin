@@ -1,0 +1,122 @@
+.client-page-parent {
+  padding: 10px;
+}
+
+.client-page-top {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.deposit-credit-modal {
+  padding: 5px;
+}
+.available-balance {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 5px;
+}
+.available-balance-heading {
+  font-size: 14px;
+  font-weight: 500;
+}
+.input-available {
+  display: flex;
+}
+.input-available input {
+  background-color: var(--secondary-input-color);
+  color: white;
+  border: none;
+  outline: none;
+}
+.after-part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.old-cred-ref {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border: 1px dashed black;
+}
+.input-old-cred {
+  padding: 5px;
+}
+.input-old-cred input {
+  width: 100%;
+  padding: 10px;
+}
+.input-old-cred label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.old-cred-readonly-input {
+  background-color: var(--secondary-input-color);
+  color: white;
+  width: 100%;
+}
+.name-section-below-old {
+  display: flex;
+  flex-direction: column;
+}
+.name-input-field-parent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.input-field-name-heading {
+  font-weight: 500;
+  font-size: 14px;
+  width: 40%;
+}
+.input-field-name {
+  display: flex;
+  padding: 4px;
+  gap: 10px;
+  justify-content: space-between;
+  width: 60%;
+}
+.input-field-name input {
+  outline: none;
+  padding: 10px;
+}
+.input-field-name textarea {
+  outline: none;
+  padding: 5px;
+}
+
+.add-deposit {
+  width: 100%;
+}
+
+.master-password-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 8px;
+}
+.input-field-master-password {
+  width: 60%;
+}
+.input-field-master-password input {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+.withdraw-popup-parent{
+    padding: 8px;
+}
+.master-field-parent{
+    display: flex;
+    flex-direction: column;
+}
+.change-password-field{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+}
+
+
