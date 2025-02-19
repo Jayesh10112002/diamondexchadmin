@@ -1,9 +1,26 @@
-import React from 'react'
-import "./TableComponent.css"
+import React, { useState } from "react";
+import "./TableComponent.css";
+
 const CasinoMaxbet = () => {
+  const [inputValues, setInputValues] = useState({});
+
+  // Handle input change and update the state
+  const handleInputChange = (name, event) => {
+    const value = event.target.value;
+    setInputValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
+  // Log all input values
+  const handleLogValues = () => {
+    console.log("Input Values:", inputValues);
+  };
+
   return (
-    <div className='table-container'>
-      <table className='betting-table'>
+    <div className="table-container">
+      <table className="betting-table">
         <thead>
           <tr>
             <th>Indian Poker / Live Casino</th>
@@ -17,18 +34,32 @@ const CasinoMaxbet = () => {
         </thead>
         <tbody>
           <tr>
-            {Array(7)
-              .fill(null)
-              .map((_, idx) => (
-                <td key={idx}>
-                  <input type="text" placeholder="" />
-                </td>
-              ))}
+            {[
+              "indianPoker",
+              "indianPoker2",
+              "evolution",
+              "vivo",
+              "betGames",
+              "casino",
+              "spribe",
+            ].map((name) => (
+              <td key={name}>
+                <input
+                  type="text"
+                  placeholder=""
+                  value={inputValues[name] || ""}
+                  onChange={(event) => handleInputChange(name, event)}
+                />
+              </td>
+            ))}
           </tr>
         </tbody>
       </table>
+      {/* <button onClick={handleLogValues} className="log-button">
+        Log Values
+      </button> */}
     </div>
   );
-}
+};
 
-export default CasinoMaxbet
+export default CasinoMaxbet;

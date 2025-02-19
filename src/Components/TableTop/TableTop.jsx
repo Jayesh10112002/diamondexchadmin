@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Select } from "antd";
 import { FaFilePdf } from "react-icons/fa";
 import { BsFiletypeCsv } from "react-icons/bs";
@@ -9,7 +9,8 @@ import jsPDF from "jspdf";
 import "jspdf-autotable";
 import "./TableTop.css";
 
-const TableTop = ({ columns, data }) => {
+const TableTop = ({ columns, data, showElements }) => {
+  // const [showelements, setShowElements] = useState({});
   // CSV Headers
   const csvHeaders = columns.map((col) => ({
     label: col.title,
@@ -35,27 +36,36 @@ const TableTop = ({ columns, data }) => {
     doc.save("ExportedData.pdf");
   };
 
+
+
   return (
     <div className="TableTop-parent">
       <div className="left-part-table-top">
-        <div className="input-search-tag-tabletop">
-          <input type="text" placeholder="Search here..." />
-        </div>
-        <div className="input-search-tag-tabletop">
-          <input type="text" placeholder="Search here by Client..." />
-        </div>
-        <div className="select-report-table-top">
-          <Select
-            placeholder="Account Statement"
-            className="select-part-report-tabletop"
-            options={[
-              { label: "Account Statement", value: "account statement" },
-              { value: "jack", label: "Jack" },
-              { value: "lucy", label: "Lucy" },
-              { value: "Yiminghe", label: "Yiminghe" },
-            ]}
-          />
-        </div>
+        {showElements.search && (
+          <div className="input-search-tag-tabletop">
+            <input type="text" placeholder="Search here..." />
+          </div>
+        )}
+        {showElements.searchByClient && (
+          <div className="input-search-tag-tabletop">
+            <input type="text" placeholder="Search here by Client..." />
+          </div>
+        )}
+        {showElements.select && (
+          <div className="select-report-table-top">
+            <Select
+              placeholder="Account Statement"
+              className="select-part-report-tabletop"
+              options={[
+                { label: "Account Statement", value: "account statement" },
+                { value: "jack", label: "Jack" },
+                { value: "lucy", label: "Lucy" },
+                { value: "Yiminghe", label: "Yiminghe" },
+              ]}
+            />
+          </div>
+        )}
+
         <div className="tabletop-exports">
           <FaFilePdf
             style={{
@@ -88,11 +98,62 @@ const TableTop = ({ columns, data }) => {
           />
         </div>
       </div>
-
-      <div className="right-side-tabletop-part">
-        <button>Add Client Account</button>
-        <button>Inactive List</button>
-      </div>
+      {showElements.buttons && (
+        <div className="right-side-tabletop-part">
+          <button>Add Client Account</button>
+          <button>Inactive List</button>
+        </div>
+      )}
+      {showElements.balanceTable && (
+        <div className="balance-table-top-table">
+          <table
+            style={{
+              width: "100%",
+              borderCollapse: "collapse",
+              textAlign: "center",
+            }}
+          >
+            <tbody className="table-body-balance-table">
+              <tr>
+                <td
+                  style={{
+                    borderRight: "1px solid gray",
+                  }}
+                >
+                  Opening Balance
+                </td>
+                <td
+                  style={{
+                    color: "green",
+                    fontWeight: "bold",
+                    textAlign: "right",
+                  }}
+                >
+                  99800.00
+                </td>
+              </tr>
+              <tr>
+                <td
+                  style={{
+                    borderRight: "1px solid gray",
+                  }}
+                >
+                  Closing Balance
+                </td>
+                <td
+                  style={{
+                    color: "blue",
+                    fontWeight: "bold",
+                    textAlign: "right",
+                  }}
+                >
+                  99800.00
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 };

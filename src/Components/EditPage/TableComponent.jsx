@@ -25,10 +25,10 @@ const TableComponent = () => {
   const [betValues, setBetValues] = useState({});
 
   // Handle input changes
-  const handleInputChange = (sport, betType, event) => {
+  const handleInputChange = (rowType, sport, betType, event) => {
     setBetValues((prevState) => ({
       ...prevState,
-      [`${sport}-${betType}`]: event.target.value,
+      [`${rowType}-${sport}-${betType}`]: event.target.value,
     }));
   };
 
@@ -63,9 +63,16 @@ const TableComponent = () => {
                         <label>{betType}</label>
                         <input
                           type="text"
-                          value={betValues[`${sport.sport}-${betType}`] || ""}
+                          value={
+                            betValues[`Max Bet-${sport.sport}-${betType}`] || ""
+                          }
                           onChange={(event) =>
-                            handleInputChange(sport.sport, betType, event)
+                            handleInputChange(
+                              "Max Bet",
+                              sport.sport,
+                              betType,
+                              event
+                            )
                           }
                         />
                       </div>
@@ -84,9 +91,17 @@ const TableComponent = () => {
                         <label>{betType}</label>
                         <input
                           type="text"
-                          value={betValues[`${sport.sport}-${betType}`] || ""}
+                          value={
+                            betValues[`Max Profit-${sport.sport}-${betType}`] ||
+                            ""
+                          }
                           onChange={(event) =>
-                            handleInputChange(sport.sport, betType, event)
+                            handleInputChange(
+                              "Max Profit",
+                              sport.sport,
+                              betType,
+                              event
+                            )
                           }
                         />
                       </div>
@@ -121,9 +136,16 @@ const TableComponent = () => {
                         <label>{betType}</label>
                         <input
                           type="text"
-                          value={betValues[`${sport.sport}-${betType}`] || ""}
+                          value={
+                            betValues[`Max Bet-${sport.sport}-${betType}`] || ""
+                          }
                           onChange={(event) =>
-                            handleInputChange(sport.sport, betType, event)
+                            handleInputChange(
+                              "Max Bet",
+                              sport.sport,
+                              betType,
+                              event
+                            )
                           }
                         />
                       </div>
@@ -142,9 +164,17 @@ const TableComponent = () => {
                         <label>{betType}</label>
                         <input
                           type="text"
-                          value={betValues[`${sport.sport}-${betType}`] || ""}
+                          value={
+                            betValues[`Max Profit-${sport.sport}-${betType}`] ||
+                            ""
+                          }
                           onChange={(event) =>
-                            handleInputChange(sport.sport, betType, event)
+                            handleInputChange(
+                              "Max Profit",
+                              sport.sport,
+                              betType,
+                              event
+                            )
                           }
                         />
                       </div>
@@ -158,9 +188,9 @@ const TableComponent = () => {
       </div>
 
       {/* Button to log values */}
-      <button onClick={handleLogValues} className="log-button">
+      {/* <button onClick={handleLogValues} className="log-button">
         Log Values
-      </button>
+      </button> */}
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Header.css";
 import { FaCircleUser } from "react-icons/fa6";
 import { IoMenu } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 // Example menu data (can be expanded or modified as needed)
 const menuData = [
@@ -61,18 +62,44 @@ const menuData = [
   {
     name: "Reports",
     subMenu: [
-      "Account's Statement",
-      "Current Bets",
-      "General Report",
-      "Game Report",
-      "Casino Report",
-      "Profit And Loss",
+      {
+        name: "Account's Statement",
+        route: "/accountstatement",
+      },
+      {
+        name: "Settlement/Balance Report",
+        route: "/settlementreport",
+      },
+      {
+        name: "Current Bets",
+        route: "/currentbets",
+      },
+      {
+        name: "General Report",
+        route: "/generalreport",
+      },
+      {
+        name: "Game Report",
+        route: "/gamereport",
+      },
+      {
+        name: "Casino Report",
+        route: "/casinoreport",
+      },
+      {
+        name: "Profit and Loss",
+        route: "/profitloss",
+      },
+      {
+        name: "Bet History",
+        route: "/bethistory",
+      },
     ],
   },
 ];
 
-const Header = ({SidebarHandler}) => {
- 
+const Header = ({ SidebarHandler }) => {
+  const navigate = useNavigate();
   return (
     <header className="header">
       <div className="header-menu">
@@ -111,13 +138,11 @@ const Header = ({SidebarHandler}) => {
                     {item.subMenu && (
                       <ul className="dropdown-menu">
                         {item.subMenu.map((subItem, subIndex) => (
-                          <li key={subIndex}>
-                            <a
-                              className="dropdown-item"
-                              href={subItem.link || "#"}
-                            >
-                              {subItem.name || subItem}
-                            </a>
+                          <li
+                            key={subIndex}
+                            onClick={() => navigate(subItem.route)}
+                          >
+                            {subItem.name || subItem}
                           </li>
                         ))}
                       </ul>

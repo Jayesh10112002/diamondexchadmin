@@ -2,6 +2,11 @@
   padding: 10px;
 }
 
+.report-heading{
+  font-size: 18px;
+  padding: 10px 20px;
+}
+
 .client-page-top {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
@@ -26,6 +31,7 @@
   color: white;
   border: none;
   outline: none;
+  padding: 10px;
 }
 .after-part {
   display: flex;
@@ -55,6 +61,7 @@
   background-color: var(--secondary-input-color);
   color: white;
   width: 100%;
+  border: none;
 }
 .name-section-below-old {
   display: flex;
@@ -79,6 +86,7 @@
 }
 .input-field-name input {
   outline: none;
+  border: none;
   padding: 10px;
 }
 .input-field-name textarea {
@@ -103,6 +111,30 @@
     justify-content: space-between;
     align-items: center;
     padding: 4px;
+}
+
+.master-password-field{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+.master-password-heading{
+  width: 40%;
+
+
+}
+.master-password-heading h4{
+  margin-inline-start: 10px;
+}
+.input-field-master-password{
+  width: 58%;
+  margin-inline-end: 10px;
+  
+}
+.input-field-master-password input{
+  padding: 5px;
+  width: 100%;
 }
 
 

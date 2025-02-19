@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import DynamicTable from "../Components/Table/DynamicTable";
 import DateFilter from "../Components/DateFilter/DateFilter";
 import TableTop from "../Components/TableTop/TableTop";
 import "../Style/Client.css";
 import { useNavigate } from "react-router-dom";
 import { Button, Input, message, Modal } from "antd";
-import MasterPassword from "../Components/PasswordMaster/MasterPassword";
+import { MasterPassword } from "../MasterPassword";
+import { MasterPasswordContext } from "../Context/MasterPassword";
+
 
 const Clients = () => {
   const [isDcModalVisible, setDcModalVisible] = useState(false);
   const [isWithdrawModalVisible, setWithdrawModalVisible] = useState(false);
   const [isPasswordModalVisible, setPasswordModalVisible] = useState(false);
-  const [isAuthModalVisible, setAuthModalVisible] = useState(false);
+  // const [isAuthModalVisible, setAuthModalVisible] = useState(false);
   const [password, setPassword] = useState("");
   const [Record, setRecord] = useState("");
   const navigate = useNavigate();
@@ -20,6 +22,10 @@ const Clients = () => {
     pageSize: 10,
     total: 0,
   });
+
+  const { setAuthModalVisible, setRedirectPath } = useContext(
+    MasterPasswordContext
+  );
 
   const handleEditUser = (name) => {
     navigate(`/edit-user/${name}`);
@@ -37,19 +43,34 @@ const Clients = () => {
     setPasswordModalVisible(true);
   };
 
-  const showAuthModal = () => {
+  const handleMasterPasswordpath = (item) =>{
     setAuthModalVisible(true);
-  };
+    setRedirectPath(item);
+  }
 
-  const handleAuthSubmit = (name) => {
-    if (password === "aman") {
-      message.success("Authenticated successfully!");
-      setAuthModalVisible(false);
-      navigate(`/game-page/${name}`);
-    } else {
-      message.error("Invalid password!");
-    }
-  };
+  // const showAuthModal = () => {
+  //   setAuthModalVisible(true);
+  // };
+
+  // const handleAuthSubmit = (name) => {
+  //   if (password === "aman") {
+  //     message.success("Authenticated successfully!");
+  //     setAuthModalVisible(false);
+  //     navigate(`/gamebetlock`);
+  //   } else {
+  //     message.error("Invalid password!");
+  //   }
+  // };
+  // const handleCasinoPage = () => {
+  //   if (password === "aman") {
+  //     message.success("Authentication successfull");
+  //     setAuthModalVisible(false);
+  //     navigate("/casinocontrol");
+  //   }else{
+  //     message.error("Invalid password")
+  //   }
+
+  // };
   const handleTableChange = (pagination) => {
     setPagination({
       ...pagination,
@@ -171,7 +192,7 @@ const Clients = () => {
               margin: 2,
               fontSize: "12px",
             }}
-            onClick={() => showAuthModal(Record.userName)}
+            onClick={() => handleMasterPasswordpath("/gamebetlock")}
           >
             GC
           </Button>
@@ -182,7 +203,7 @@ const Clients = () => {
               margin: 2,
               fontSize: "12px",
             }}
-            onClick={() => showAuthModal(Record.userName)}
+            onClick={() => handleMasterPasswordpath("/casinocontrol")}
           >
             CC
           </Button>
@@ -241,12 +262,21 @@ const Clients = () => {
     setRecord(data);
   }, []);
 
+    const showElements = {
+      search: true,
+      searchByClient: true,
+      select: true,
+      balanceTable: false,
+      buttons: true,
+    };
+
   console.log("this is record", Record);
   return (
     <div className="client-page-parent">
       <div className="client-page-top">
+        <h2 className="report-heading">Client List</h2>
         {/* <DateFilter /> */}
-        <TableTop columns={columns} data={data} />
+        <TableTop columns={columns} data={data} showElements={showElements} />
 
         <Modal
           title="DC Modal"
@@ -318,7 +348,14 @@ const Clients = () => {
                 </div>
               </div>
             </div>
-            <MasterPassword />
+            <div className="master-password-field">
+              <div className="master-password-heading">
+                <h4>Master Password:</h4>
+              </div>
+              <div className="input-field-master-password">
+                <input type="password" placeholder="Enter Password" />
+              </div>
+            </div>
           </div>
         </Modal>
 
@@ -384,15 +421,14 @@ const Clients = () => {
               </div>
             </div>
           </div>
-          {/* <div className="master-password-field">
+          <div className="master-password-field">
             <div className="master-password-heading">
               <h4>Master Password:</h4>
             </div>
             <div className="input-field-master-password">
               <input type="password" placeholder="Enter Password" />
             </div>
-          </div> */}
-          <MasterPassword />
+          </div>
         </Modal>
         <Modal
           title="Change Password"
@@ -427,18 +463,7 @@ const Clients = () => {
             </div>
           </div>
         </Modal>
-        <Modal
-          title="Authenticate"
-          visible={isAuthModalVisible}
-          onCancel={() => setAuthModalVisible(false)}
-          onOk={handleAuthSubmit}
-        >
-          <Input.Password
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter password to continue"
-          />
-        </Modal>
+        <MasterPassword />
         <DynamicTable
           columns={columns}
           pagination={pagination}

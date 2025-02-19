@@ -8,6 +8,7 @@
 }
 body {
   --primary-bg-color: #0088cc;
+  --primary-hover-color: #1585bd;
   --secondary-bg-color: #2c3e50;
   --secondary-input-color: #61a6ef;
 }

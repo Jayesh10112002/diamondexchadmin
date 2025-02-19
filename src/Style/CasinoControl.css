@@ -1,0 +1,119 @@
+.casino-control-parent {
+  padding: 10px;
+  width: 60%;
+}
+.section-casino-control {
+  border: 1px solid black;
+  padding: 20px;
+  position: relative;
+  border-radius: 4px;
+}
+.absolute-heading {
+  padding-bottom: 5px;
+  background-color: white;
+  position: absolute;
+  top: -10px;
+  font-size: 16px;
+}
+.casino-checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-inline: 10px;
+}
+.casino-checkbox-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+.casino-checkbox-item input {
+  margin-right: 5px;
+}
+.casino-control-input-parent{
+    margin-top: 10px;
+    padding-top: 10px;
+}
+.casino-control-input-parent h5{
+    font-size: 16px;
+    font-weight: 500;
+}
+.expand-casino-control{
+    display: flex;
+    align-items: center;
+    padding:  10px;
+}
+.open-icon-casino{
+    cursor: pointer;
+
+}
+.expand-casino-control span{
+    display: flex;
+    align-items: center;
+}
+.name-provider-casino{
+    margin-inline-start: 5px;
+}
+.expanded-list-providers {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateX(-40px);
+  transition: max-height 0.7s ease-in-out, opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+}
+
+.expanded-list-providers.show {
+  max-height: 1000px; 
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.unordered-list-provider {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-providers-casino {
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  transition: opacity 0.8s ease-in-out, transform 1s ease-in-out;
+}
+
+.list-providers-casino.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.list-providers-casino.fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.unordered-list-provider{
+display: flex;
+flex-direction: column;
+}
+.list-providers-casino{
+    display: flex;
+    align-items: center;
+padding: 0px 20px;
+}
+.list-providers-casino span{
+    display: flex;
+    align-items: center;
+}
+.casino-checkbox-item-expanded-item{
+    color: black;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-inline-start: 4px;
+    font-weight: 500;
+    padding: 4px;
+}
+.casino-checkbox-item-expanded-item input{
+    margin-inline-start: 5px;
+}
+

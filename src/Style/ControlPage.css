@@ -1,0 +1,214 @@
+.controlpage-parent {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding:10px 30px ;
+}
+
+.form-container {
+  width: 60%;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+
+.section {
+  margin-bottom: 15px;
+  padding: 20px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.section-lastchild {
+  margin-bottom: 2px;
+}
+
+.section h4 {
+  padding-bottom: 5px;
+  background-color: white;
+  position: absolute;
+  top: -10px;
+  font-size: 16px;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-inline: 10px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.checkbox-item input {
+  margin-right: 5px;
+}
+.checkbox-item input[type="checkbox"] {
+  transform: scale(0.9); /* Increase size */
+  width: 18px; /* Adjust for better compatibility */
+  height: 18px;
+}
+
+.market-type {
+  margin-bottom: 20px;
+}
+
+.market-type h5 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #0f0e0e;
+}
+.filter-date-control-page {
+  display: flex;
+  justify-content: right;
+}
+.day-picker {
+  width: 15%;
+  color: #0f0e0e;
+  border: 1px solid gray;
+}
+.competiton-event-market h5 {
+  font-size: 16px;
+}
+.sports-tab-controlpage {
+  display: flex;
+  margin-top: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.sports-tab-items {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid gray;
+  transition: all 0.3s ease-in-out;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.sports-tab-items:hover {
+  background-color: #e6f7ff;
+}
+
+.activesports-tab {
+  border-top: 1px solid gray;
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+  border-bottom: none;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .checkbox-group {
+    flex-direction: column;
+  }
+}
+
+
+
+
+
+/* Main container styles */
+
+
+/* Parent card */
+.sports-tab-content{
+  margin-top: 10px;
+}
+.parent-card {
+  background-color: var(--primary-bg-color);
+  color: white;
+  padding: 8px 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.parent-card:hover {
+  background-color:var(--primary-hover-color);
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.toggle-button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expandable-child-parent{
+ border: 1px solid rgb(206, 196, 196);
+}
+.match-name-child-container{
+  background-color: teal;
+  padding:8px;
+  display: flex;
+  align-items: center;
+font-size: 14px;
+font-weight: 500;
+
+}
+.checkbox-input-field{
+  margin-inline-start: 10px;
+  display: flex;
+  align-items: center;
+  width: 20px;  
+  height: 20px;
+}
+.checkbox-input-field .input-field-name-checkbox[type="checkbox"]{
+  height: 100%;
+  width: 100%;
+ 
+}
+/* Child container */
+.child-container {
+  color: white;
+  margin-top: 15px;
+  margin-inline-start: 20px;
+}
+
+
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-bottom: 1px solid gray;
+  background-color: white ;
+  color: black;
+}
+.list-item span{
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+.list-item-match-name{
+  margin-inline-start: 5px;
+}
+.list-item-input-checkbox{
+  margin-inline-start: 10px;
+  width: 15px;
+  height: 15px;
+}
+
+

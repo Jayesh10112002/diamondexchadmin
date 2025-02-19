@@ -4,7 +4,6 @@ import "../Style/ClientAccountForm.css";
 import { Select } from "antd";
 import TableComponent from "../Components/EditPage/TableComponent";
 import CasinoMaxbet from "../Components/EditPage/CasinoMaxbet";
-import MasterPassword from "../Components/PasswordMaster/MasterPassword";
 
 function ClientAccountForm() {
   const { user } = useParams();
@@ -13,7 +12,6 @@ function ClientAccountForm() {
   const handleCheckboxChange = (event) => {
     setShowComponents(event.target.checked);
   };
-  console.log("this is usee", user);
 
   // State for form fields
   const [accountData, setAccountData] = useState({
@@ -25,6 +23,18 @@ function ClientAccountForm() {
     masterPassword: "",
   });
 
+  const [userSetting, setUserSetting] = useState({
+    username: "",
+    password: "",
+    retypepassword: "",
+    refrencename: "",
+  });
+
+  const handleUserSetting = (e) => {
+    const { name, value } = e.target;
+    setUserSetting((prevData) => ({ ...prevData, [name]: value }));
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setAccountData((prevData) => ({ ...prevData, [name]: value }));
@@ -32,7 +42,8 @@ function ClientAccountForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitted Data: ", accountData);
+    console.log("User Setting Data:", userSetting);
+    console.log("Submitted Account Data:", accountData);
   };
 
   return (
@@ -52,13 +63,20 @@ function ClientAccountForm() {
                     { value: "lucy", label: "Lucy" },
                     { value: "Yiminghe", label: "Yiminghe" },
                   ]}
+                  onChange={(value) =>
+                    setAccountData((prevData) => ({
+                      ...prevData,
+                      accountType: value,
+                    }))
+                  }
                 />
               </div>
               <div className="input-account-type">
                 <label>Client Name:</label>
                 <input
                   type="text"
-                  value={user}
+                  name="clientName"
+                  value={accountData.clientName}
                   onChange={handleChange}
                   placeholder="Enter client name"
                 />
@@ -74,23 +92,27 @@ function ClientAccountForm() {
               <span>%(1%)</span>
             </div>
           </div>
-          <div className="account-details-child ">
+          <div className="account-details-child">
             <h5>User Setting:</h5>
             <div className="third-child-betlimit">
               <div className="input-account-type">
                 <label>Max Bet:</label>
                 <input
                   type="number"
-                  value={0}
-                  placeholder="Enter client name"
+                  name="maxBet"
+                  value={accountData.maxBet}
+                  onChange={handleChange}
+                  placeholder=""
                 />
-              </div>{" "}
+              </div>
               <div className="input-account-type">
                 <label>Max Profit:</label>
                 <input
                   type="number"
-                  value={0}
-                  placeholder="Enter client name"
+                  name="maxProfit"
+                  value={accountData.maxProfit}
+                  onChange={handleChange}
+                  placeholder=""
                 />
               </div>
             </div>
@@ -104,23 +126,42 @@ function ClientAccountForm() {
                 <label>Username:</label>
                 <input
                   type="text"
-                  value={user}
+                  name="username"
+                  value={userSetting.username}
+                  onChange={handleUserSetting}
                   placeholder="Enter client name"
                 />
-              </div>{" "}
+              </div>
               <div className="input-account-type">
                 <label>Password:</label>
-                <input type="password" placeholder="Enter client name" />
+                <input
+                  type="password"
+                  name="password"
+                  value={userSetting.password}
+                  onChange={handleUserSetting}
+                  placeholder="Enter client password"
+                />
               </div>
             </div>
             <div className="third-child-betlimit personal-details-input">
               <div className="input-account-type">
                 <label>Retype Password:</label>
-                <input type="password" />
-              </div>{" "}
+                <input
+                  type="password"
+                  name="retypepassword"
+                  value={userSetting.retypepassword}
+                  onChange={handleUserSetting}
+                />
+              </div>
               <div className="input-account-type">
-                <label>Refrence Name:</label>
-                <input type="text" placeholder="Refrence Name" />
+                <label>Reference Name:</label>
+                <input
+                  type="text"
+                  name="refrencename"
+                  value={userSetting.refrencename}
+                  onChange={handleUserSetting}
+                  placeholder="Reference Name"
+                />
               </div>
             </div>
           </div>
@@ -151,9 +192,10 @@ function ClientAccountForm() {
         )}
       </div>
       <div className="master-field-add-client">
-        <MasterPassword />
       </div>
-        <button className="update-btn">Update</button>
+      <button className="update-btn" onClick={handleSubmit}>
+        Update
+      </button>
     </div>
   );
 }
