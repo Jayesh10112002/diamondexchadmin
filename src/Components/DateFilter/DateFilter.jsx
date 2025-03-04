@@ -166,8 +166,8 @@ const DateFilter = ({ showdateFilterElements }) => {
           </div>
         )}
         {showdateFilterElements.search && (
-          <div className="search-input-field">
-            <label className="label-part-date-filter"> Search here</label>
+          <div className="select-part-parent-filter">
+            <label className="label-part-date-filter">Search here</label>
             <input
               type="text"
               placeholder="Search here"

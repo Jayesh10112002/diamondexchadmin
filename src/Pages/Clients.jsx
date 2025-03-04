@@ -23,9 +23,7 @@ const Clients = () => {
     total: 0,
   });
 
-  const { setAuthModalVisible, setRedirectPath } = useContext(
-    MasterPasswordContext
-  );
+  const { setAuthModalVisible, setRedirectPath } = useContext(MasterPasswordContext);
 
   const handleEditUser = (name) => {
     navigate(`/edit-user/${name}`);

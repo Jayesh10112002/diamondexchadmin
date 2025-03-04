@@ -71,15 +71,31 @@ const TableData = [
   },
 ];
 
+ const showdateFilterElements = {
+   datefilter: true,
+   accountReport: true,
+   selectReport: true,
+   selectEvent: true,
+   selectMarketType: false,
+   selectMarket: false,
+   search: true,
+   inputFieldTO: false,
+   inputFieldFrom: false,
+ };
+
 const Dashboard = () => {
   return (
     <div className="Dashboard-parent">
       <div className="date-component">
-        <DateFilter />
+        <DateFilter showdateFilterElements={showdateFilterElements} />
       </div>
       <div className="dashbordCard-component">
         {CardData.map((item, index) => (
-          <DashboardCard key={index} heading={item.heading} value={item.value} />
+          <DashboardCard
+            key={index}
+            heading={item.heading}
+            value={item.value}
+          />
         ))}
       </div>
       <div className="dashbordTable-component">

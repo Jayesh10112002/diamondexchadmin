@@ -29,11 +29,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route
             element={
-              <ProtectedRoute>
+              // <ProtectedRoute>
                 <MasterPasswordProvider>
                   <Layout />
                 </MasterPasswordProvider>
-              </ProtectedRoute>
+              // </ProtectedRoute>
             }
           >
             <Route path="/" element={<Dashboard />} />

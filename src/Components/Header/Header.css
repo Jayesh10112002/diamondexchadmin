@@ -171,9 +171,12 @@
     .navbar-link{
         padding: 4px 5px;
     }
-    .header{
-
-    }
+  }
+  @media (max-width:790px) {
+      .menu-row {
+    display: none;
+  }
+    
   }
   
 

@@ -40,6 +40,19 @@
   transition: max-height 0.5s ease, opacity 0.3s ease;
 }
 
+.menuItems-responsive{
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+  display: none;
+  border: 2px solid red;
+}
+.menu-items-span{
+  color: white;
+  font-size: 14px;
+}
+
+
 /* .menu-items-open {
 }
 
